@@ -41,16 +41,17 @@ public class NewsDataAdapter extends ArrayAdapter<NewsData> {
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_text_view);
         TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section_text_view);
 
-        //TITLE and AUTOR
+        //TITLE
         String title = currentNewData.getmTitle();
         if (title.indexOf(" | ")>0){
             String[] textTitleAutor = title.split("\\|",2);
             titleTextView.setText(textTitleAutor[0]);
-            autorTextView.setText(textTitleAutor[1]);
         } else {
-            autorTextView.setText("");
             titleTextView.setText(title);
         }
+
+        //AUTHOR
+        autorTextView.setText(currentNewData.getmAutor());
 
         //TIME
         String timeData = currentNewData.getmTime();

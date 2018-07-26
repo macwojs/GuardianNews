@@ -25,7 +25,7 @@ public class NewsActivity extends AppCompatActivity
 
     /** URL for earthquake data from the USGS dataset */
     private static final String USGS_REQUEST_URL =
-            "https://content.guardianapis.com/search?tag=politics/politics&page-size=20&api-key="+BuildConfig.GuardianSecAPIKEY;
+            "https://content.guardianapis.com/search?order-by=newest&show-tags=contributor&page-size=15&q=politics&api-key="+BuildConfig.GuardianSecAPIKEY;
 
 
 

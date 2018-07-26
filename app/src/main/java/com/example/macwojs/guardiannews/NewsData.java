@@ -10,11 +10,14 @@ public class NewsData {
 
     private String mSection;
 
-    public NewsData(String title, String time, String url, String section){
+    private String mAutor;
+
+    public NewsData(String title, String time, String url, String section, String autor){
         mTitle = title;
         mTime = time;
         mUrl = url;
         mSection = section;
+        mAutor = autor;
     }
 
     public String getmTitle() {
@@ -31,5 +34,9 @@ public class NewsData {
 
     public String getmSection() {
         return mSection;
+    }
+
+    public String getmAutor() {
+        return mAutor;
     }
 }

@@ -71,9 +71,22 @@ public final class QueryUtils {
                 String url = currentNews.getString("webUrl");
                 String time = currentNews.getString("webPublicationDate");
 
+                JSONArray tagArray = currentNews.getJSONArray("tags");
+
+                String autor;
+
+                if (tagArray.length() > 1) {
+                    autor = "Multi author";
+                } else if (tagArray.length() == 1) {
+                    autor = tagArray.getJSONObject(0).getString("webTitle");
+                } else{
+                    autor = "";
+                }
+
+
                 // Create a new {@link NewsData} object with the magnitude, location, time,
                 // and url from the JSON response.
-                NewsData newsData = new NewsData(title,time,url,section);
+                NewsData newsData = new NewsData(title,time,url,section,autor);
 
                 // Add the new {@link Earthquake} to the list of News.
                 News.add(newsData);
