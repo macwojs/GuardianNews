@@ -66,21 +66,21 @@ public final class QueryUtils {
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
                 // Extract the value
-                String title = currentNews.getString("webTitle");
                 String section = currentNews.getString("sectionName");
                 String url = currentNews.getString("webUrl");
                 String time = currentNews.getString("webPublicationDate");
 
-                JSONArray tagArray = currentNews.getJSONArray("tags");
-
                 String autor;
+                String title;
 
-                if (tagArray.length() > 1) {
-                    autor = "Multi author";
-                } else if (tagArray.length() == 1) {
-                    autor = tagArray.getJSONObject(0).getString("webTitle");
-                } else{
+                String titleAndAutor = currentNews.getString("webTitle");
+                if (titleAndAutor.indexOf(" | ")>0){
+                    String[] textTitleAutor = titleAndAutor.split("\\|",2);
+                    title = textTitleAutor[0];
+                    autor = textTitleAutor[1];
+                } else {
                     autor = "";
+                    title = titleAndAutor;
                 }
 
 
