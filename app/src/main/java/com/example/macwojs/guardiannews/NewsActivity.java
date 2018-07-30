@@ -158,6 +158,7 @@ public class NewsActivity extends AppCompatActivity
         uriBuilder.appendQueryParameter("to-date", currentDate);
         uriBuilder.appendQueryParameter("order-by", orderBy);
         uriBuilder.appendQueryParameter("page-size", "20");
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("api-key", BuildConfig.GuardianSecAPIKEY);
 
         Log.e("URL", "Zapytanie wysłane to: "+uriBuilder.toString());
